@@ -3,89 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World News - December 13, 2024</title>
+    <title>Global News Insights - Dec 13, 2024</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
             display: flex;
             height: 100vh;
+            overflow: hidden;
         }
         .news-section {
             flex: 1;
-            border: 1px solid #ddd;
-            cursor: pointer;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            transition: background-color 0.3s;
+            padding: 15px;
+            background-color: white;
+            border-right: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .news-section:last-child {
+            border-right: none;
         }
         .news-section:hover {
             background-color: #f0f0f0;
         }
-        .summary {
+        .news-section h2 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+        .news-section p {
+            font-size: 0.9rem;
+            color: #666;
             display: none;
-            padding: 20px;
-            background-color: white;
-            position: absolute;
+        }
+        .modal {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            max-height: 80%;
             overflow-y: auto;
-            z-index: 10;
+            position: relative;
         }
         .close-btn {
             position: absolute;
             top: 10px;
             right: 10px;
+            font-size: 1.5rem;
             cursor: pointer;
+            color: #888;
         }
     </style>
 </head>
 <body>
-    <div class="news-section" data-title="Global Climate Crisis Escalates" data-summary="Recent reports indicate an unprecedented acceleration of climate change impacts worldwide. Major international conferences are being convened to discuss emergency mitigation strategies, with particular focus on reducing carbon emissions and developing adaptive technologies.">
-        <h2>Global Climate Crisis</h2>
-    </div>
-    
-    <div class="news-section" data-title="Breakthrough in AI Regulation" data-summary="International tech regulators have announced comprehensive new guidelines for artificial intelligence development. The framework aims to address ethical concerns, ensure transparency, and protect individual privacy while fostering technological innovation.">
-        <h2>AI Regulation Milestone</h2>
-    </div>
-    
-    <div class="news-section" data-title="Global Economic Restructuring" data-summary="Major economic powers are implementing significant reforms to address global economic inequalities. New trade agreements and financial mechanisms are being developed to create more sustainable and equitable economic interactions between developed and developing nations.">
-        <h2>Economic Transformation</h2>
-    </div>
-    
-    <div class="news-section" data-title="Space Exploration Advancement" data-summary="NASA and international space agencies announce a collaborative mission expanding human presence beyond current space exploration boundaries. The project involves developing new propulsion technologies and establishing more comprehensive plans for long-term space research and potential colonization.">
-        <h2>Space Exploration Frontier</h2>
+    <div class="container">
+        <div class="news-section" data-title="Syria Conflict Escalates" data-summary="Rebel forces have made significant advances in Syria, reportedly entering Damascus and liberating key cities including Aleppo and Homs. The developing situation marks a critical turning point in the long-standing civil conflict, with potential major geopolitical implications.">
+            <h2>Syria Conflict</h2>
+            <p>Breaking developments in the Syrian civil war</p>
+        </div>
+        
+        <div class="news-section" data-title="Global Climate Emergency" data-summary="International climate reports indicate accelerating environmental changes. Unprecedented heat waves, extreme weather events, and rising sea levels are prompting urgent global discussions on immediate mitigation and adaptation strategies.">
+            <h2>Climate Crisis</h2>
+            <p>Urgent environmental challenges worldwide</p>
+        </div>
+        
+        <div class="news-section" data-title="AI Regulatory Breakthrough" data-summary="Major global tech powers have collaboratively developed comprehensive AI governance frameworks. The new regulations aim to address ethical concerns, ensure transparency, and establish international standards for artificial intelligence development and deployment.">
+            <h2>AI Regulation</h2>
+            <p>International AI governance milestone</p>
+        </div>
+        
+        <div class="news-section" data-title="Geopolitical Tensions" data-summary="Ongoing diplomatic negotiations and strategic realignments are reshaping international relations. Key global powers are engaging in complex dialogue to manage potential conflicts and establish new economic and security partnerships.">
+            <h2>Global Diplomacy</h2>
+            <p>Shifting international power dynamics</p>
+        </div>
     </div>
 
-    <div class="summary" id="newsSummary">
-        <span class="close-btn" onclick="closeSummary()">✖</span>
-        <h2 id="summaryTitle"></h2>
-        <p id="summaryText"></p>
+    <div class="modal" id="newsModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalSummary"></p>
+        </div>
     </div>
 
     <script>
         document.querySelectorAll('.news-section').forEach(section => {
             section.addEventListener('click', function() {
-                const summary = document.getElementById('newsSummary');
-                const summaryTitle = document.getElementById('summaryTitle');
-                const summaryText = document.getElementById('summaryText');
+                const modal = document.getElementById('newsModal');
+                const modalTitle = document.getElementById('modalTitle');
+                const modalSummary = document.getElementById('modalSummary');
                 
-                summaryTitle.textContent = this.getAttribute('data-title');
-                summaryText.textContent = this.getAttribute('data-summary');
+                modalTitle.textContent = this.getAttribute('data-title');
+                modalSummary.textContent = this.getAttribute('data-summary');
                 
-                summary.style.display = 'block';
+                modal.style.display = 'flex';
             });
         });
 
-        function closeSummary() {
-            document.getElementById('newsSummary').style.display = 'none';
+        function closeModal() {
+            document.getElementById('newsModal').style.display = 'none';
         }
+
+        // Close modal when clicking outside of it
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('newsModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
