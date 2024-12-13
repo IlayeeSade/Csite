@@ -3,48 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Csite - Global Insights</title>
+    <title>Csite - Global Insights Platform</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body { 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f4f8;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
         }
         .home-container {
-            text-align: center;
+            max-width: 900px;
+            margin: 40px auto;
             background-color: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
         }
-        .home-links {
-            display: flex;
-            justify-content: center;
+        .intro-text {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .domain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-top: 20px;
         }
-        .home-links a {
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+        .domain-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
             transition: transform 0.3s ease;
         }
-        .home-links a:hover {
+        .domain-card:hover {
             transform: scale(1.05);
+        }
+        .domain-card a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="home-container">
-        <h1>Csite</h1>
-        <p>Curated Global Insights Across Key Domains</p>
-        <div class="home-links">
-            <a href="world-politics.html" style="background-color: #2c3e50; color: white;">World & Politics</a>
-            <a href="ai.html" style="background-color: #2980b9; color: white;">AI</a>
-            <a href="computer-science.html" style="background-color: #27ae60; color: white;">Computer Science</a>
+        <div class="intro-text">
+            <h1>Csite: Navigating Global Knowledge</h1>
+            <p>A curated platform delivering in-depth insights across critical global domains. Our mission is to provide comprehensive, timely, and nuanced perspectives.</p>
+        </div>
+        <div class="domain-grid">
+            <div class="domain-card" style="background-color: #2c3e50;">
+                <a href="world-politics.html">
+                    <h2>World & Politics</h2>
+                    <p>Geopolitical analysis, international relations, and global policy trends</p>
+                </a>
+            </div>
+            <div class="domain-card" style="background-color: #2980b9;">
+                <a href="ai.html">
+                    <h2>Artificial Intelligence</h2>
+                    <p>Cutting-edge AI developments, ethical considerations, and technological breakthroughs</p>
+                </a>
+            </div>
+            <div class="domain-card" style="background-color: #27ae60;">
+                <a href="computer-science.html">
+                    <h2>Computer Science</h2>
+                    <p>Latest research, emerging technologies, and computational innovations</p>
+                </a>
+            </div>
         </div>
     </div>
 </body>
