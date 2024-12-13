@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>World & Politics - Csite</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="world-politics.html" class="active">World & Politics</a>
+        <a href="ai.html">AI</a>
+        <a href="computer-science.html">Computer Science</a>
+    </nav>
+    
+    <div class="date-selector">
+        <input type="date" id="news-date" value="2024-12-13">
+    </div>
+
+    <div class="container">
+        <div class="news-section" data-title="Syria Conflict Resolution" data-summary="International diplomatic efforts have led to a breakthrough in the Syrian peace negotiations, with major global powers agreeing on a comprehensive framework for regional stability and humanitarian assistance.">
+            <h2>Syria Peace Talks</h2>
+            <p>Diplomatic breakthrough in long-standing conflict</p>
+        </div>
+        
+        <div class="news-section" data-title="Global Climate Accord" data-summary="194 countries have signed a landmark climate agreement, committing to drastic carbon emission reductions and providing substantial financial support for developing nations to transition to green technologies.">
+            <h2>Climate Diplomacy</h2>
+            <p>Unprecedented global environmental commitment</p>
+        </div>
+    </div>
+
+    <div class="modal" id="newsModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalSummary"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI - Csite</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="world-politics.html">World & Politics</a>
+        <a href="ai.html" class="active">AI</a>
+        <a href="computer-science.html">Computer Science</a>
+    </nav>
+    
+    <div class="date-selector">
+        <input type="date" id="news-date" value="2024-12-13">
+    </div>
+
+    <div class="container">
+        <div class="news-section" data-title="Claude 3.5 Sonnet Web Integration" data-summary="Anthropic announces Claude 3.5 Sonnet's advanced web browsing capabilities, enabling seamless integration with GitHub, research platforms, and complex web applications, marking a significant leap in AI assistants' practical utility.">
+            <h2>Claude's Web Evolution</h2>
+            <p>AI assistant expands web interaction capabilities</p>
+        </div>
+        
+        <div class="news-section" data-title="Gemini 2.0 Flash Model" data-summary="Google DeepMind unveils Gemini 2.0 Flash, a groundbreaking AI model demonstrating unprecedented efficiency in processing multimodal inputs with near real-time response speeds and enhanced contextual understanding.">
+            <h2>Gemini's New Frontier</h2>
+            <p>Advanced AI model redefines performance benchmarks</p>
+        </div>
+    </div>
+
+    <div class="modal" id="newsModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalSummary"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
