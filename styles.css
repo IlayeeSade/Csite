@@ -25,6 +25,16 @@ nav a {
     transition: color 0.3s ease;
 }
 
+/* Subject-specific color themes */
+nav a[data-subject='world-politics']:hover, nav a[data-subject='world-politics'].active { color: #1E90FF; }
+.news-section[data-subject='world-politics'] { background-color: #E6F2FF; border-left: 5px solid #1E90FF; }
+
+nav a[data-subject='computer-science']:hover, nav a[data-subject='computer-science'].active { color: #32CD32; }
+.news-section[data-subject='computer-science'] { background-color: #E6FFE6; border-left: 5px solid #32CD32; }
+
+nav a[data-subject='ai']:hover, nav a[data-subject='ai'].active { color: #9370DB; }
+.news-section[data-subject='ai'] { background-color: #F0E6FF; border-left: 5px solid #9370DB; }
+
 nav a:hover, nav a.active {
     color: #4CAF50;
 }
