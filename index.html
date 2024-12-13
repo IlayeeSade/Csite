@@ -24,23 +24,28 @@
         <section id="home">
             <h1>Csite: Beyond the Headlines</h1>
             <p>A curated platform transforming how you consume global information. We dive deep, providing context and insights across critical domains.</p>
-            
-            <div class="feature-grid">
-                <div class="feature">
-                    <h3>Precision Curation</h3>
-                    <p>Meticulously selected articles that cut through noise, delivering meaningful perspectives.</p>
-                </div>
-                <div class="feature">
-                    <h3>Temporal Exploration</h3>
-                    <p>Travel through time with our dynamic date selector, uncovering historical and emerging narratives.</p>
-                </div>
-                <div class="feature">
-                    <h3>Multidimensional Insights</h3>
-                    <p>Bridging World Politics, Computer Science, and Artificial Intelligence into a comprehensive knowledge landscape.</p>
-                </div>
-            </div>
+        </section>
+
+        <section id="world-politics" class="subject-section" style="display:none;">
+            <div class="container"></div>
+        </section>
+
+        <section id="computer-science" class="subject-section" style="display:none;">
+            <div class="container"></div>
+        </section>
+
+        <section id="ai" class="subject-section" style="display:none;">
+            <div class="container"></div>
         </section>
     </main>
+
+    <div id="newsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalSummary"></p>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2024 Csite - Illuminating Perspectives</p>

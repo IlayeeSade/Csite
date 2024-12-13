@@ -11,11 +11,22 @@ body {
     color: #333;
 }
 
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+}
+
+.logo {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
 nav {
     display: flex;
     justify-content: center;
-    background-color: #333;
-    padding: 10px 0;
+    margin-bottom: 1rem;
 }
 
 nav a {
@@ -24,16 +35,6 @@ nav a {
     margin: 0 15px;
     transition: color 0.3s ease;
 }
-
-/* Subject-specific color themes */
-nav a[data-subject='world-politics']:hover, nav a[data-subject='world-politics'].active { color: #1E90FF; }
-.news-section[data-subject='world-politics'] { background-color: #E6F2FF; border-left: 5px solid #1E90FF; }
-
-nav a[data-subject='computer-science']:hover, nav a[data-subject='computer-science'].active { color: #32CD32; }
-.news-section[data-subject='computer-science'] { background-color: #E6FFE6; border-left: 5px solid #32CD32; }
-
-nav a[data-subject='ai']:hover, nav a[data-subject='ai'].active { color: #9370DB; }
-.news-section[data-subject='ai'] { background-color: #F0E6FF; border-left: 5px solid #9370DB; }
 
 nav a:hover, nav a.active {
     color: #4CAF50;
@@ -46,19 +47,17 @@ nav a:hover, nav a.active {
 
 .container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: stretch;
-    max-width: 1200px;
-    margin: 0 auto;
     gap: 15px;
     padding: 15px;
 }
 
 .news-section {
-    flex: 1;
+    width: 250px;
     background-color: white;
     border-radius: 8px;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     cursor: pointer;
@@ -66,43 +65,50 @@ nav a:hover, nav a.active {
 }
 
 .news-section:hover {
-    transform: scale(1.02);
-}
-
-.news-section h2 {
-    margin-bottom: 10px;
-    color: #1a1a1a;
-}
-
-.news-section p {
-    color: #666;
+    transform: scale(1.05);
 }
 
 .modal {
+    display: none;
     position: fixed;
-    top: 0;
+    z-index: 1000;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.7);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
     width: 80%;
     max-width: 600px;
-    max-height: 80%;
-    overflow-y: auto;
+    border-radius: 10px;
 }
 
 .close-btn {
+    color: #aaa;
     float: right;
-    font-size: 1.5rem;
+    font-size: 28px;
+    font-weight: bold;
     cursor: pointer;
 }
+
+.close-btn:hover {
+    color: black;
+}
+
+#no-articles-message {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+}
+
+/* Subject-specific colors */
+[data-subject='world-politics'] { color: #1E90FF; }
+[data-subject='computer-science'] { color: #32CD32; }
+[data-subject='ai'] { color: #9370DB; }
